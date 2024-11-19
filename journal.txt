@@ -1,0 +1,5 @@
+Journal
+
+Scope: I am doing a semantics model to predict if the semantic is positive or negative using the IMDB dataset. 
+
+Data: So far data is straightforward. There needs to be removal of characters and stop words. There are a lot of upper/lower case reviews and ***** etc. 
