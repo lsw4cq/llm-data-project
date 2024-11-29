@@ -37,3 +37,6 @@ I chose accuracy and F1 scores because our readings said these were the best for
     report_to="none"
 
 I ended up buying google credits to run this on their A100 GPU because the num_epochs made a huge difference to the model. 
+
+Here is a link to my Model Report 
+(https://huggingface.co/landoncodes/my_awesome_model)
