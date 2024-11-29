@@ -7,7 +7,12 @@ I chose sentiment analysis using the IMDB database.
 I used the IMDB dataset that contains reviews and then labels (0 ,1) for positive or negative reviews.
 
 ## Pre-trained Model
-(fill in details about the pre-trained model you selected)
+I used a model called reviews-sentiment-analysis 
+(https://huggingface.co/juliensimon/reviews-sentiment-analysis)
+
+Distilbert model fine-tuned on English language product reviews
+
+A notebook for Amazon SageMaker is available in the 'code' subfolder.
 
 ## Performance Metrics
 Loss: 0.2832
@@ -17,15 +22,18 @@ F1: 0.9320
 I chose accuracy and F1 scores because our readings said these were the best for sentiment analysis. 
 
 ## Hyperparameters
-
-learning_rate: 3e-05
-train_batch_size: 16
-eval_batch_size: 16
-seed: 42
-optimizer: Use adamw_torch with betas=(0.9,0.999) and epsilon=1e-08 and optimizer_args=No additional optimizer arguments
-lr_scheduler_type: linear
-lr_scheduler_warmup_steps: 500
-num_epochs: 3
-mixed_precision_training: Native AMP
+   output_dir="my_tuned_model",
+    learning_rate=2e-5,
+    per_device_train_batch_size=16,
+    per_device_eval_batch_size=16,
+    warmup_steps = 500,
+    num_train_epochs=4,
+    weight_decay=0.01,
+    eval_strategy="epoch",
+    metric_for_best_model="accuracy",
+    save_strategy="epoch",
+    load_best_model_at_end=True,
+    push_to_hub=True,
+    report_to="none"
 
 I ended up buying google credits to run this on their A100 GPU because the num_epochs made a huge difference to the model. 
